@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Steep Playground</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.js" integrity="sha512-UxcTlYsLkcuGZL9JNnMsfo3p7VFSmcgBjH1VUSM82Okk5ni52bk7vz9f2p+D1VnMcNUmMzbzgWqWcdJ2j8Svow==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/mode/ruby/ruby.min.js" integrity="sha512-iaNQnQZsPVbcMNpiS7v0D88nGVv6eH4VWqm2/EhNfoeUZw2YTLJLIsTIPZPMpip3W/fvf3iVHCwfsxvbzeH22A==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.2/codemirror.min.css" integrity="sha512-xIf9AdJauwKIVtrVRZ0i4nHP61Ogx9fSRAkCLecmE2dL/U8ioWpDvFCAy4dcfecN72HHB9+7FfQj3aiO68aaaw==" crossorigin="anonymous" />
+    <link href="./style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body class="flex-col">
+    <div class="nav flex-row">
+      <div class="flex-row nav-left">
+        <h1><a href="">Steep Playground</a></h1>
+        <button id="btn-analyze">Analyze</button>
+      </div>
+      <div class="flex-row nav-right">
+        <input type="text" readonly id="minibuffer" class="fill">
+        <button id="btn-report-bug">Report bug</button>
+      </div>
+    </div>
+    <div class="flex-row fill">
+      <div class="flex-col half">
+        <div class="flex-col half">
+          <h5 class="code-label">Ruby</h5>
+          <div class="codemirror-wrapper">
+            <textarea id="code-rb" class="code-editor fill" spellcheck="false">user = User.new(name: "John", age: 20)
+
+user.test(user.name)
+user.test(user.age)
+</textarea>
+          </div>
+        </div>
+        <div class="flex-col half">
+          <h5 class="code-label">RBS</h5>
+          <div class="codemirror-wrapper">
+            <textarea id="code-rbs" class="code-editor fill" spellcheck="false">class User
+  def initialize: (name: String, age: Integer) -&gt void
+
+  attr_reader name: String
+  attr_reader age: Integer
+
+  def test: (String s) -&gt void
+end</textarea>
+          </div>
+        </div>
+      </div>
+      <div class="flex-col half">
+        <h5 class="code-label">Output</h5>
+        <div class="codemirror-wrapper output">
+          <textarea readonly id="steep-output" class="code-editor fill" spellcheck="false"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="nav">
+      <p id="footer">GitHub: <a href="https://github.com/soutaro/steep">soutaro/steep</a> (Frontend author: <a href="https://twitter.com/koba789">koba789</a>)</p>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
